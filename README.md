@@ -188,6 +188,79 @@ const myn1 = myArr.slice(1, 3);
 const myn2 = myArr.splice(1, 3);
 ```
 
+## 9. Functions
+
+File: `basics3/functions.js`
+
+Functions are reusable blocks of code that perform a specific task.
+
+Important points:
+
+- Functions help organize code.
+- Functions reduce repetition.
+- Functions can accept inputs called parameters.
+- Functions can return values using `return`.
+- Code after `return` inside a function does not run.
+
+### Function Declaration
+
+```js
+function sayMyName() {
+  console.log("My name is Don");
+}
+
+sayMyName();
+```
+
+### Function with Parameters
+
+```js
+function add(a, b) {
+  console.log(a + b);
+}
+
+add(5, 10);
+```
+
+Important note:
+
+- `a` and `b` are parameters.
+- `5` and `10` are arguments.
+
+### Returning a Value
+
+```js
+function loginUser(username) {
+  if (username === undefined) {
+    console.log("Please provide a username");
+    return;
+  }
+
+  return `${username} just logged in`;
+}
+```
+
+Important notes:
+
+- `return` sends a value back from the function.
+- If no argument is passed, `username` becomes `undefined`.
+- Template literals use backticks and `${}` to insert values.
+
+### Rest Operator
+
+```js
+function calculateCartPrice(...num1) {
+  return num1;
+}
+
+console.log(calculateCartPrice(100, 200, 300));
+```
+
+Important notes:
+
+- The rest operator `...` collects multiple arguments into an array.
+- It is useful when the number of arguments is not fixed.
+
 ## How to Run Files
 
 Use Node.js in the terminal:
@@ -199,6 +272,7 @@ node basics/conversion.js
 node basics/maths.js
 node basics/test.js
 node baiscs2/Array.js
+node basics3/functions.js
 ```
 
 ## Quick Revision Checklist
@@ -212,4 +286,7 @@ node baiscs2/Array.js
 - [ ] Create and access arrays
 - [ ] Use basic array methods
 - [ ] Understand `slice()` vs `splice()`
-
+- [ ] Create and call functions
+- [ ] Understand parameters and arguments
+- [ ] Return values from functions
+- [ ] Use the rest operator
