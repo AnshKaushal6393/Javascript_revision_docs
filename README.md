@@ -261,6 +261,70 @@ Important notes:
 - The rest operator `...` collects multiple arguments into an array.
 - It is useful when the number of arguments is not fixed.
 
+## 10. Scope
+
+File: `basics3/scope.js`
+
+Scope controls where variables can be accessed in JavaScript.
+
+Important points:
+
+- `let` and `const` have block scope.
+- `var` has function scope and can behave unexpectedly inside blocks.
+- Variables declared inside a function cannot be accessed outside that function.
+- Inner functions can access variables from their outer function.
+
+### Block Scope
+
+```js
+var c = 300;
+
+if (true) {
+  let a = 10;
+  const b = 20;
+  var c = 30;
+}
+
+console.log(c);
+```
+
+Important note:
+
+- `a` and `b` are only available inside the `if` block.
+- `c` is changed because `var` is not block-scoped.
+
+### Function Scope and Nested Functions
+
+```js
+function one() {
+  const username = "Don";
+
+  function two() {
+    const website = "www.google.com";
+    console.log(username);
+  }
+
+  two();
+}
+
+one();
+```
+
+Important notes:
+
+- The inner function `two()` can access `username` from the outer function.
+- The outer function `one()` cannot access `website` from inside `two()`.
+
+### Function Declaration Example
+
+```js
+function addone(num) {
+  return num + 1;
+}
+
+console.log(addone(5));
+```
+
 ## How to Run Files
 
 Use Node.js in the terminal:
@@ -273,6 +337,7 @@ node basics/maths.js
 node basics/test.js
 node baiscs2/Array.js
 node basics3/functions.js
+node basics3/scope.js
 ```
 
 ## Quick Revision Checklist
@@ -290,3 +355,5 @@ node basics3/functions.js
 - [ ] Understand parameters and arguments
 - [ ] Return values from functions
 - [ ] Use the rest operator
+- [ ] Understand block scope with `let`, `const`, and `var`
+- [ ] Understand function scope and nested functions
