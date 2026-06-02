@@ -325,6 +325,82 @@ function addone(num) {
 console.log(addone(5));
 ```
 
+## 11. `this` and Arrow Functions
+
+File: `basics3/arrow.js`
+
+This file covers how `this` behaves inside objects and how arrow functions are written.
+
+Important points:
+
+- `this` refers to the current object when used inside an object method.
+- Object properties can be updated and used again through the same method.
+- Arrow functions provide a shorter way to write functions.
+- Arrow functions do not have their own `this`.
+
+### Object Method with `this`
+
+```js
+const user = {
+  username: "don",
+  price: 999,
+
+  welcomeMessage: function () {
+    console.log("Welcome " + this.username);
+    console.log(this);
+  },
+};
+
+user.welcomeMessage();
+user.username = "john";
+user.welcomeMessage();
+```
+
+Important note:
+
+- When `username` changes from `"don"` to `"john"`, `this.username` also uses the updated value.
+
+### Arrow Function
+
+```js
+const add = (a, b) => {
+  return a + b;
+};
+
+console.log(add(5, 10));
+```
+
+Important notes:
+
+- `(a, b)` are parameters.
+- `=>` is the arrow function syntax.
+- The function returns the sum of `a` and `b`.
+
+## 12. IIFE
+
+File: `basics3/ifffy.js`
+
+IIFE stands for Immediately Invoked Function Expression.
+
+Important points:
+
+- An IIFE runs immediately after it is created.
+- It is useful when code should execute only once.
+- The function is wrapped in parentheses and then called with `()`.
+
+Example:
+
+```js
+(function chai() {
+  console.log(`DB connected`);
+})();
+```
+
+Important note:
+
+- The first `()` wraps the function expression.
+- The second `()` immediately executes it.
+
 ## How to Run Files
 
 Use Node.js in the terminal:
@@ -338,6 +414,8 @@ node basics/test.js
 node baiscs2/Array.js
 node basics3/functions.js
 node basics3/scope.js
+node basics3/arrow.js
+node basics3/ifffy.js
 ```
 
 ## Quick Revision Checklist
@@ -357,3 +435,6 @@ node basics3/scope.js
 - [ ] Use the rest operator
 - [ ] Understand block scope with `let`, `const`, and `var`
 - [ ] Understand function scope and nested functions
+- [ ] Understand `this` inside object methods
+- [ ] Write basic arrow functions
+- [ ] Understand and use IIFE syntax
